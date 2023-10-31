@@ -14,7 +14,22 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
-    public float jumpPower = 17f;
+    public float jumpPower = 19f;
+
+    public float CurrentMove
+    {
+        get
+        {
+            if(IsMoving && !touchingDirections.IsOnWall)
+            {
+                return walkSpeed;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
 
     [SerializeField]
     private bool _isMoving = false;
@@ -59,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput.x * CurrentMove, rb.velocity.y);
         animator.SetFloat(AnimationString.yVelocity, rb.velocity.y);
     }
 
@@ -89,7 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started && touchingDirections.IsGrounded)
         {
-            animator.SetTrigger(AnimationString.jump);
+            //animator.SetTrigger(AnimationString.jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
