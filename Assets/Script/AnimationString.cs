@@ -10,4 +10,6 @@ public class AnimationString
     internal static String isGrounded = "isGrounded";
     internal static String yVelocity = "yVelocity";
     internal static String jump = "jump";
+    internal static String isOnWall = "isOnWall";
+    internal static String isOnCeiling = "isOnCeiling";
 }

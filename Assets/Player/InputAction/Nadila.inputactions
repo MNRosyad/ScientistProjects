@@ -7,67 +7,34 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "eb244873-610b-4c25-ae5a-bd72b47edd84",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "dad43e5b-1ce6-44b9-aa8a-397906af18d5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "4fde55ee-26f7-4c30-9a69-9647ed17e034",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
+                    "name": "basic",
                     "id": "82a569e1-bd90-4c91-9e73-3b6115bda228",
-                    "path": "Dpad",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": true,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "166d9e20-3814-4aff-bced-a6b6162ec676",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "9de77b27-afb7-41ee-8da2-662dda185744",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "left",
@@ -93,7 +60,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "30b6ee03-55ec-4fc6-8c63-eff67512a52b",
+                    "id": "8cbc59ac-fb37-43c0-8bfe-1bd9a3b1fd57",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -103,8 +70,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
-                    "id": "1e879749-e0fd-482b-aa76-a131c5da61df",
+                    "name": "Right",
+                    "id": "6ea24d0b-0b96-4ca5-aa76-de755473ef18",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -114,31 +81,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "ac3173fb-152d-4185-9399-8c16acef08e4",
-                    "path": "<XRController>/{Primary2DAxis}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6bc6b96e-afe9-4d76-b5be-7fe7b29f57e5",
-                    "path": "<Joystick>/stick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Up",
                     "id": "5d861e41-2d32-4f9c-a111-d9fb30ae6eec",
-                    "path": "Dpad",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -147,7 +92,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
+                    "name": "Up",
                     "id": "b1a651c8-7681-4c97-a930-3974dd22bd22",
                     "path": "<Keyboard>/w",
                     "interactions": "",
