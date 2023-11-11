@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     TouchingDirections touchingDirections;
+    CapsuleCollider2D playerCollider;
 
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
     public float jumpPower = 19f;
+
+    public bool passPlatform;
 
     public float CurrentMove
     {
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void FixedUpdate()
@@ -106,6 +110,23 @@ public class PlayerController : MonoBehaviour
         {
             //animator.SetTrigger(AnimationString.jump);
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        }
+    }
+
+    public void AdjustColliderSize()
+    {
+        //
+    }
+
+    public void OnDownPlatform(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            passPlatform = true;
+        }
+        else if (context.canceled)
+        {
+            passPlatform = false;
         }
     }
 }
