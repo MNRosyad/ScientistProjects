@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TouchingDirections : MonoBehaviour
 {
-    Rigidbody2D rb;
     CapsuleCollider2D touchingCol;
     Animator animator;
 
@@ -57,7 +56,6 @@ public class TouchingDirections : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         touchingCol = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }

@@ -97,6 +97,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private bool _interaction = false;
+
+    public bool Interaction
+    {
+        get
+        {
+            return _interaction;
+        }
+        private set
+        {
+            _interaction = value;
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -166,6 +181,18 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             PassPlatform = false;
+        }
+    }
+
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Interaction = true;
+        }
+        else if(context.canceled)
+        {
+            Interaction = false;
         }
     }
 
