@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 2701878894215384457}
   - component: {fileID: 6306137612486249479}
   - component: {fileID: 238565574545791121}
-  - component: {fileID: 6090244031070564795}
-  m_Layer: 0
+  - component: {fileID: 879504369021508854}
+  m_Layer: 3
   m_Name: Nadila
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -41,6 +41,7 @@ Transform:
   - {fileID: 6323874871507853086}
   - {fileID: 7099818150691962358}
   - {fileID: 6305480744651365466}
+  - {fileID: 3828449799136993327}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1226758239182532640
@@ -197,6 +198,7 @@ MonoBehaviour:
   _isFacingRight: 0
   _isCrouching: 0
   _passPlatform: 0
+  _interaction: 0
 --- !u!114 &6306137612486249479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,12 +320,28 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2b267f39-fcc2-4cf7-abe6-50aebdbeb821
     m_ActionName: Player/Crouch[/Keyboard/s,/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2701878894215384457}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 393c8d31-914f-4495-b33e-d6cb55e841d0
+    m_ActionName: Player/Interaction[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &6090244031070564795
+--- !u!114 &879504369021508854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,9 +353,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff41c85bfcb0c774e845c2a08ec62add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDetect: {fileID: 7099818150691962358}
-  boxHolder: {fileID: 6323874871507853086}
-  rayDistance: 1.5
+  boxUp: {fileID: 7099818150691962358}
+  boxFront: {fileID: 6323874871507853086}
+  boxDetect: {fileID: 3828449799136993327}
+  rayFrontDistance: 1
+  rayUpDistance: 2.2
+  grabToggle: 0
+  defaultRay: 1
 --- !u!1 &4141733454660072328
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +525,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 927578e5917cff64aa5abcc096b2f856, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -536,6 +558,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6961688448809088598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3828449799136993327}
+  m_Layer: 2
+  m_Name: BoxDetect
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3828449799136993327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961688448809088598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7967305241042761192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7365269243274373971
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7099818150691962358}
   m_Layer: 6
-  m_Name: GrabDetect
+  m_Name: BoxUp
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -561,7 +614,7 @@ Transform:
   m_GameObject: {fileID: 7365269243274373971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -577,7 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6323874871507853086}
   m_Layer: 6
-  m_Name: BoxHolder
+  m_Name: BoxFront
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
