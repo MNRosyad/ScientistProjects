@@ -14,6 +14,12 @@ public class GrabController : MonoBehaviour
 
     private bool grabToggle;
     private Collider2D savedCollider;
+    private CapsuleCollider2D capsuleCollider;
+
+    private void Awake()
+    {
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+    }
 
     void Update()
     {
@@ -25,12 +31,16 @@ public class GrabController : MonoBehaviour
             Collider2D detectBox = grabCheck.collider;
             if (grabToggle == true)
             {
-                if (grabCheck.collider != null && grabCheck.collider.tag == "Box")
+                if (detectBox != null && detectBox.tag == "Box")
                 {
                     detectBox.transform.parent = boxHolder;
                     detectBox.transform.position = boxHolder.position;
                     detectBox.GetComponent<Rigidbody2D>().isKinematic = true;
                     detectBox.enabled = false;
+
+                    capsuleCollider.direction = CapsuleDirection2D.Horizontal;
+                    capsuleCollider.size = new Vector2(2.3f, 2f);
+                    capsuleCollider.offset = new Vector2(-0.7f, -0.4f);
 
                     grabCheck.rigidbody.velocity = Vector2.zero;
                     savedCollider = detectBox;
@@ -41,6 +51,10 @@ public class GrabController : MonoBehaviour
                 savedCollider.transform.parent = null;
                 savedCollider.GetComponent<Rigidbody2D>().isKinematic = false;
                 savedCollider.enabled = true;
+
+                capsuleCollider.direction = CapsuleDirection2D.Vertical;
+                capsuleCollider.size = new Vector2(0.8f, 2f);
+                capsuleCollider.offset = new Vector2(-0.02f, -0.4f);
             }
         }
     }

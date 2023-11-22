@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Platform
   - Box
-  - DetectArea
+  - TombolGerbang
+  - Gerbang
   layers:
   - Default
   - TransparentFX

@@ -11,13 +11,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     TouchingDirections touchingDirections;
-    CapsuleCollider2D playerCollider;
+    CapsuleCollider2D playerCapsuleCollider;
 
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
     public float jumpPower = 19f;
-
-    public bool passPlatform;
 
     public float CurrentMove
     {
@@ -49,7 +47,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool _isFacingRight = false;
+    [SerializeField]
+    private bool _isFacingRight = false;
 
     public bool IsFacingRight
     {
@@ -68,12 +67,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private bool _isCrouching = false;
+
+    public bool IsCrouching 
+    { 
+        get
+        {
+            return _isCrouching;
+        } 
+        private set
+        {
+            _isCrouching = value;
+        }
+    }
+
+    [SerializeField]
+    private bool _passPlatform = false;
+
+    public bool PassPlatform
+    {
+        get
+        {
+            return _passPlatform;
+        }
+        private set
+        {
+            _passPlatform = value;
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        playerCapsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     private void FixedUpdate()
@@ -104,29 +133,54 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.started && touchingDirections.IsGrounded)
         {
-            //animator.SetTrigger(AnimationString.jump);
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            IsCrouching = true;
+        }
+        else if (context.canceled)
+        {
+            IsCrouching = false;
         }
     }
 
-    public void AdjustColliderSize()
+    public void OnJump(InputAction.CallbackContext context)
     {
-        //
+        if (IsCrouching == false)
+        {
+            if (context.started && touchingDirections.IsGrounded)
+            {
+                //animator.SetTrigger(AnimationString.jump);
+                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            }
+        }
     }
 
     public void OnDownPlatform(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && touchingDirections.IsGrounded)
         {
-            passPlatform = true;
+            PassPlatform = true;
         }
         else if (context.canceled)
         {
-            passPlatform = false;
+            PassPlatform = false;
         }
+    }
+
+    public void AdjustColliderSize(float width, float height)
+    {
+        playerCapsuleCollider.size = new Vector2(width, height);
+    }
+
+    public void AdjustColliderOffset(float xOffset, float yOffset)
+    {
+        playerCapsuleCollider.offset = new Vector2(xOffset, yOffset);
+    }
+
+    public void SetCapsuleDirection(CapsuleDirection2D direction)
+    {
+        playerCapsuleCollider.direction = direction;
     }
 }

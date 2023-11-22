@@ -27,7 +27,7 @@ public class OneWayPlatform : MonoBehaviour
         {
             return;
         }
-        else if (controller.passPlatform)
+        else if (controller.PassPlatform == true)
         {
             effector.rotationalOffset = 180;
             controller = null;

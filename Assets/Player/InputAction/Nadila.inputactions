@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Value",
+                    "id": "2b267f39-fcc2-4cf7-abe6-50aebdbeb821",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -136,8 +145,8 @@
                 {
                     "name": "WASD",
                     "id": "9cde8217-9a1b-4928-a3c9-1b3a96e10b4f",
-                    "path": "2DVector",
-                    "interactions": "",
+                    "path": "OneModifier",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "DownPlatform",
@@ -145,8 +154,19 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Down",
-                    "id": "3b595ddf-e881-49fa-8f81-848319ae38e0",
+                    "name": "Modifier",
+                    "id": "be7de833-54e0-460c-be47-37bb2790aece",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownPlatform",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Binding",
+                    "id": "42f1a311-3cf1-4b9e-9f21-ec6263a2e2bb",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -156,13 +176,35 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Down",
-                    "id": "18998838-5f3a-479e-b3f5-8c52ea103136",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "down",
+                    "id": "5e6b039d-7b3a-4f4e-ab05-ed2c70d8db04",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DownPlatform",
+                    "action": "Crouch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "db677731-d704-4038-90d3-3f1db70b3f9c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "04bd3aad-2310-4737-878b-77f6a12bcaf2",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
