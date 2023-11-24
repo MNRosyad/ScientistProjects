@@ -6,7 +6,7 @@
 
 ###
 
-<img align="right" height="400" src="https://media.discordapp.net/attachments/688026824176828461/1177459801882636349/backup.png"  />
+<img align="right" height="250" src="https://media.discordapp.net/attachments/688026824176828461/1177459801882636349/backup.png"  />
 
 ###
 
@@ -28,6 +28,6 @@
 ###
 
 <h3 align="left">Game Page : Itch.io</h3>
-Link : [lgm-studio.itch.io/scientist-projects](https://lgm-studio.itch.io/scientist-projects)
+Link : https://lgm-studio.itch.io/scientist-projects
 
 ###
