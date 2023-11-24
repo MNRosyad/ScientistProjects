@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class KeypadDoor : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class KeypadDoor : MonoBehaviour
             codeTextValue = "";
         }
 
-        if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
+        if (Input.GetKey(KeyCode.B) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
         }
@@ -52,8 +53,8 @@ public class KeypadDoor : MonoBehaviour
         if (other.tag == "Player")
         {
             IsAtDoor = true;
-
         }
+         
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -82,5 +83,5 @@ public class KeypadDoor : MonoBehaviour
         {
             codeTextValue = "";
         }
-    
+
 }
