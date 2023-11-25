@@ -24,14 +24,14 @@ public class GrabController : MonoBehaviour
     [SerializeField]
     private bool defaultRay = true;
     private Collider2D savedCollider;
-    private CapsuleCollider2D capsuleCollider;
+    private TouchingDirections touchDirection;
     private PlayerController player;
 
     private RaycastHit2D boxCheck;
 
     private void Awake()
     {
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        touchDirection = GetComponent<TouchingDirections>();
         player = GetComponent<PlayerController>();
 
         layerMask = 1 << layerNumber;
@@ -61,18 +61,19 @@ public class GrabController : MonoBehaviour
             {
                 if (detectBox != null && detectBox.CompareTag("Box"))
                 {
-                    detectBox.transform.parent = boxUp;
-                    detectBox.transform.position = boxUp.position;
+                    detectBox.transform.parent = boxFront;
+                    detectBox.transform.position = boxFront.position;
                     detectBox.GetComponent<Rigidbody2D>().isKinematic = true;
                     detectBox.isTrigger = true;
 
-                    player.AdjustColliderOffset(-0.02f, 0.1f);
-                    player.AdjustColliderSize(0.8f, 3f);
+                    player.SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                    player.AdjustColliderOffset(-0.7f, -0.4f);
+                    player.AdjustColliderSize(2.3f, 2f);
 
                     boxCheck.rigidbody.velocity = Vector2.zero;
                     savedCollider = detectBox;
                     grabToggle = true;
-                    defaultRay = false;
+                    //defaultRay = false;
                 }
             }
             else if (grabToggle == true)
@@ -80,15 +81,16 @@ public class GrabController : MonoBehaviour
                 if (detectBox != null && detectBox.CompareTag("Box"))
                 {
                     savedCollider.transform.parent = null;
-                    savedCollider.transform.position = boxFront.position;
+                    //savedCollider.transform.position = boxFront.position;
                     savedCollider.GetComponent<Rigidbody2D>().isKinematic = false;
                     savedCollider.isTrigger = false;
 
+                    player.SetCapsuleDirection(CapsuleDirection2D.Vertical);
                     player.AdjustColliderOffset(-0.02f, -0.4f);
                     player.AdjustColliderSize(0.8f, 2f);
 
                     grabToggle = false;
-                    defaultRay = true;
+                    //defaultRay = true;
                 }
             }
         }
