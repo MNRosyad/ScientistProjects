@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6306137612486249479}
   - component: {fileID: 238565574545791121}
   - component: {fileID: 879504369021508854}
+  - component: {fileID: 786768422160166157}
   m_Layer: 3
   m_Name: Nadila
   m_TagString: Player
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDistance: 0.05
-  wallDistance: 0.01
+  wallDistance: 0.05
   ceilingDistance: 0.05
   castFilter:
     useTriggers: 0
@@ -360,6 +361,18 @@ MonoBehaviour:
   rayUpDistance: 2.2
   grabToggle: 0
   defaultRay: 1
+--- !u!114 &786768422160166157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469515448365049859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4ac0b16732fcd4497285209b112f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4141733454660072328
 GameObject:
   m_ObjectHideFlags: 0
