@@ -10,16 +10,22 @@ public class KeypadDoor : MonoBehaviour
     private Animator anim;
 
     private bool IsAtDoor = false;
+    private bool KodeBenar = false;
 
     [SerializeField] private TextMeshProUGUI CodeText;
     string codeTextValue = "";
     public string safeCode;
     public GameObject CodePanel;
+    
+
+    private BoxCollider2D keypadCollider;
 
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
+        keypadCollider = GetComponent<BoxCollider2D>();
+
     }
 
 
@@ -30,7 +36,11 @@ public class KeypadDoor : MonoBehaviour
         if (codeTextValue == safeCode)
         {
             anim.SetTrigger("OpenDoor");
+            keypadCollider.size = new Vector2 (1.1f, 1.3f);
+            keypadCollider.offset = new Vector2 (0.02f, -0.3f);
             CodePanel.SetActive(false);
+
+            KodeBenar = true; 
         }
 
         if (codeTextValue.Length >= 5)
@@ -38,7 +48,7 @@ public class KeypadDoor : MonoBehaviour
             codeTextValue = "";
         }
 
-        if (Input.GetKey(KeyCode.B) && IsAtDoor == true)
+        if (Input.GetKey(KeyCode.E) && IsAtDoor == true)
         {
             CodePanel.SetActive(true);
         }
@@ -46,15 +56,26 @@ public class KeypadDoor : MonoBehaviour
         {
             CodePanel.SetActive(false);
         }
+        
+
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+
+        if (other.tag == "Player" )
         {
             IsAtDoor = true;
+            if(KodeBenar)
+            {
+                GantiScene();
+            }
         }
-         
+
+       
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -83,5 +104,12 @@ public class KeypadDoor : MonoBehaviour
         {
             codeTextValue = "";
         }
+
+    private void GantiScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    
+
 
 }
