@@ -8,6 +8,8 @@ public class KeypadDoor : MonoBehaviour
 {
 
     private Animator anim;
+    public Animator transition;
+    public float transtionTime = 1f;
 
     private bool IsAtDoor = false;
     private bool KodeBenar = false;
@@ -56,10 +58,7 @@ public class KeypadDoor : MonoBehaviour
         {
             CodePanel.SetActive(false);
         }
-        
-
-
-
+   
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -73,8 +72,6 @@ public class KeypadDoor : MonoBehaviour
                 GantiScene();
             }
         }
-
-       
 
     }
 
@@ -107,9 +104,14 @@ public class KeypadDoor : MonoBehaviour
 
     private void GantiScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine (LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     
-
+   IEnumerator LoadLevel(int LevelIndex)
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transtionTime);
+        SceneManager.LoadScene(LevelIndex); 
+    }
 
 }

@@ -6,22 +6,34 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
+
+    public Animator transition;
+    public float transtionTime = 1f;
+
+
     void Update()
     {
-        // Cek apakah tombol R ditekan
+       
         if (Input.GetKeyDown(KeyCode.R))
         {
-            // Panggil fungsi RestartGame
-            RestartGame();
+
+            StartCoroutine (RestartGameWithTransition());
         }
+    }
+
+    IEnumerator RestartGameWithTransition()
+    {
+      
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transtionTime);
+        RestartGame();
     }
 
     void RestartGame()
     {
-        // Dapatkan indeks scene saat ini
+      
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Load ulang scene dengan indeks yang sama
         SceneManager.LoadScene(currentSceneIndex);
     }
 }
