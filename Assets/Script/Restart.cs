@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AnimatorTransision))]
 
 public class Restart : MonoBehaviour
 {
+    public AnimatorTransision animator;
 
-    public Animator transition;
-    public float transtionTime = 1f;
+    private void Awake()
+    {
+        animator = GetComponent<AnimatorTransision>();
+    }
 
 
     void Update()
@@ -16,17 +20,9 @@ public class Restart : MonoBehaviour
        
         if (Input.GetKeyDown(KeyCode.R))
         {
-
-            StartCoroutine (RestartGameWithTransition());
+            StartCoroutine (animator.TransitionTimer());
+            RestartGame();
         }
-    }
-
-    IEnumerator RestartGameWithTransition()
-    {
-      
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transtionTime);
-        RestartGame();
     }
 
     void RestartGame()
