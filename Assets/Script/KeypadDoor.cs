@@ -4,13 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AnimatorTransision))]
 public class KeypadDoor : MonoBehaviour
 {
-
+    public AnimatorTransision animator;
     private Animator anim;
-    public Animator transition;
-    public float transtionTime = 1f;
-
     private bool IsAtDoor = false;
     private bool KodeBenar = false;
 
@@ -27,6 +25,7 @@ public class KeypadDoor : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         keypadCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<AnimatorTransision>();
 
     }
 
@@ -104,14 +103,9 @@ public class KeypadDoor : MonoBehaviour
 
     private void GantiScene()
     {
-        StartCoroutine (LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    }
-    
-   IEnumerator LoadLevel(int LevelIndex)
-    {
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(transtionTime);
-        SceneManager.LoadScene(LevelIndex); 
+        animator.TransitionCoroutine();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
