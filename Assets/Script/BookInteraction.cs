@@ -5,7 +5,7 @@ using UnityEngine;
 public class BookInteraction : MonoBehaviour
 {
     public GameObject bookUI;
-    private bool isPlayerInRange = false;
+    private bool isPlayerInRange = false;   
 
     void Start()
     {

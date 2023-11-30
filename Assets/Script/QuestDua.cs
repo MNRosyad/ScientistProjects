@@ -56,7 +56,7 @@ public class QuestDua : MonoBehaviour
     public void CheckInputs(string input1, string input2)
     {
         int jawabanBenar1 = 45;
-        int jawabanBenar2 = 6;
+        int jawabanBenar2 = 12;
 
         bool jawaban1Benar = CheckSingleInput(input1, jawabanBenar1);
         bool jawaban2Benar = CheckSingleInput(input2, jawabanBenar2);
