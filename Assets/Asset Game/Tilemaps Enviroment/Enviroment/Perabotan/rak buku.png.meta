@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 81d2b40981bede9449afd754743c70d1
+guid: 6220ac19a766e104bbf26da663d8d55a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,53 +110,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage 3-5_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe338a4058626444ea03828d2ac2e567
-      internalID: 1207664866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage 3-5_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db063ffb47c900944ad39007491df9ac
-      internalID: 874812125
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage 3-5_2
+      name: rak buku_0
       rect:
         serializedVersion: 2
         x: 32
-        y: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -166,18 +124,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 004a2fcdf1b85e04daf2734f47816105
-      internalID: -421561646
+      spriteID: dfbb137d276ce66428c675061ff3fbd7
+      internalID: -1148521672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_3
+      name: rak buku_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c3643b7fb296345baea225ede3f5d5
+      internalID: -76047817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -187,18 +166,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec3e24d381ea2b41a52cc551b49f11f
-      internalID: -1019405759
+      spriteID: bc1c77aab6098fe4c8561ad338e584e4
+      internalID: -2033978245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_4
+      name: rak buku_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 144
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -208,39 +187,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7e2056f509d7314499aaca80a807530
-      internalID: -134668296
+      spriteID: ef9d0ddac8299d54c8633381d535786b
+      internalID: -354710453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_5
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ecfd7e0acf85c9641a8c920bffd5322e
-      internalID: -1282780872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage 3-5_6
+      name: rak buku_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -250,18 +208,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 332881d8b8d85c1458aa18222fd417b6
-      internalID: -467908569
+      spriteID: 1f673ad4bbfbf4640af704d79b44173a
+      internalID: -1353414737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_7
+      name: rak buku_5
       rect:
         serializedVersion: 2
         x: 16
-        y: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -271,18 +229,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd502da066ebda841ad567eec66430c3
-      internalID: -652192836
+      spriteID: 1216d14f951a6284fa4ed955f068ce96
+      internalID: 1961643584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_8
+      name: rak buku_6
       rect:
         serializedVersion: 2
         x: 32
-        y: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -292,18 +250,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d93e2a060cae7468cb3ee1a84fdebb
-      internalID: -1197660854
+      spriteID: 741152181f2cd9f409c1a448473e98bc
+      internalID: -201689922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_9
+      name: rak buku_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff04f557ea8065f47a89968fa6b4b612
+      internalID: -1480473364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_8
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -313,18 +292,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ca1263e670ba8644b9756e1a571f04c
-      internalID: -789421082
+      spriteID: 8e14577e257fda84ab1318e1b62acd7a
+      internalID: 1680283427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_10
+      name: rak buku_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 128
+        x: 80
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -334,39 +313,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eb58278e0936764393bb1e262114373
-      internalID: 530404843
+      spriteID: ae7ce05867ed3cc4cb349f191bf1f91b
+      internalID: 691400297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_11
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a5a3c41c23041b4b8e9eb4d2dd171b8
-      internalID: -1766345688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage 3-5_12
+      name: rak buku_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -376,18 +334,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50ed401eacd4c5a458d483a3bcd43e64
-      internalID: -369831991
+      spriteID: 2410f1cecf66b814a9c54330db9c2abd
+      internalID: -94389799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_13
+      name: rak buku_11
       rect:
         serializedVersion: 2
         x: 16
-        y: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -397,18 +355,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf55c1a297ed28c44a2f32ddd5525bfc
-      internalID: 1212385919
+      spriteID: 78b28c4062d2b044386b757c8dc802c6
+      internalID: 834050890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_14
+      name: rak buku_12
       rect:
         serializedVersion: 2
         x: 32
-        y: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -418,18 +376,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e74e8095716e9974c8b948bbcc249b1e
-      internalID: 782999473
+      spriteID: 9e3843a8a74e7a547a34dc2581077605
+      internalID: 1009908844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_15
+      name: rak buku_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e7fdd27a477ea4387e16309005edff
+      internalID: -770132483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_14
       rect:
         serializedVersion: 2
         x: 64
-        y: 112
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -439,18 +418,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 802c22824acb51b4191a86498df92bdc
-      internalID: -720437455
+      spriteID: 1ac5ef411902f69469fce16eea00c1db
+      internalID: -1481077892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_16
+      name: rak buku_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595591daabc1b5a42ab138e8b9846b29
+      internalID: -1233575886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -460,18 +460,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ded02be89c1153845905d07f6f439552
-      internalID: 1732904615
+      spriteID: 4af81a3065ebab84badc189439ffa7df
+      internalID: -689541394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_17
+      name: rak buku_17
       rect:
         serializedVersion: 2
         x: 16
-        y: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -481,18 +481,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f6e7c4b0411cd04788644dff538695d
-      internalID: 411900588
+      spriteID: 72c04964dddbde04c888d3d1c304dbe7
+      internalID: 454213702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_18
+      name: rak buku_18
       rect:
         serializedVersion: 2
         x: 32
-        y: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -502,18 +502,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fab08002b0e6f0d478cae83b5cc200e6
-      internalID: -597248314
+      spriteID: f279269e9d1589d45b5033aea6af19a8
+      internalID: 482178673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage 3-5_19
+      name: rak buku_19
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -523,8 +523,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 864e1ad483d6a8e468c9fa96c36b3820
-      internalID: -532443518
+      spriteID: f84e5a8d944aa7a4ebf062e3286e138a
+      internalID: -152253170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59097a0d29be5f4fa95cc44e5d54af3
+      internalID: 484466532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rak buku_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619cd05f6f3434b47963d37aee340050
+      internalID: -265875523
       vertices: []
       indices: 
       edges: []
@@ -540,26 +582,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stage 3-5_0: 1207664866
-      stage 3-5_1: 874812125
-      stage 3-5_10: 530404843
-      stage 3-5_11: -1766345688
-      stage 3-5_12: -369831991
-      stage 3-5_13: 1212385919
-      stage 3-5_14: 782999473
-      stage 3-5_15: -720437455
-      stage 3-5_16: 1732904615
-      stage 3-5_17: 411900588
-      stage 3-5_18: -597248314
-      stage 3-5_19: -532443518
-      stage 3-5_2: -421561646
-      stage 3-5_3: -1019405759
-      stage 3-5_4: -134668296
-      stage 3-5_5: -1282780872
-      stage 3-5_6: -467908569
-      stage 3-5_7: -652192836
-      stage 3-5_8: -1197660854
-      stage 3-5_9: -789421082
+      rak buku_0: -1148521672
+      rak buku_1: -76047817
+      rak buku_10: -94389799
+      rak buku_11: 834050890
+      rak buku_12: 1009908844
+      rak buku_13: -770132483
+      rak buku_14: -1481077892
+      rak buku_15: -1233575886
+      rak buku_16: -689541394
+      rak buku_17: 454213702
+      rak buku_18: 482178673
+      rak buku_19: -152253170
+      rak buku_2: -2033978245
+      rak buku_20: 484466532
+      rak buku_21: -265875523
+      rak buku_3: -354710453
+      rak buku_4: -1353414737
+      rak buku_5: 1961643584
+      rak buku_6: -201689922
+      rak buku_7: -1480473364
+      rak buku_8: 1680283427
+      rak buku_9: 691400297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
