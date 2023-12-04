@@ -10,6 +10,12 @@ public class RespawnManager : MonoBehaviour
     public Transform respawnPoint;
     public GameObject player;
     public AnimatorTransision animator;
+    PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
 
     void Start()
     {
@@ -23,12 +29,14 @@ public class RespawnManager : MonoBehaviour
             animator.TransitionCoroutine();
         }
         respawnUI.SetActive(true);
+        playerController.EnableMovement(false);
     }
 
     public void ContinueGame()
     {
         respawnUI.SetActive(false);
         animator.TransitionCoroutine();
+        playerController.EnableMovement(true);
     }
 
     public void ReturnToMainMenu()
@@ -40,7 +48,6 @@ public class RespawnManager : MonoBehaviour
     {
         player.transform.position = respawnPoint.position;
         ShowRespawnUI();
-
     }
 
     public void PlayerDeath(GameObject Player)
