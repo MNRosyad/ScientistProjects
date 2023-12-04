@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
+    PlayerController player;
     public AnimatorTransision animator;
+
+    private void Awake()
+    {
+        player = GetComponent<PlayerController>();
+    }
 
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.R))
+        if (player.RestartScene)
         {
             animator.TransitionCoroutine();
             RestartGame();
@@ -19,9 +24,7 @@ public class Restart : MonoBehaviour
 
     void RestartGame()
     {
-      
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
         SceneManager.LoadScene(currentSceneIndex);
     }
 }

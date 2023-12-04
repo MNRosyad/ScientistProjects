@@ -16,13 +16,12 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
     public float jumpPower = 19f;
-    private bool isMovementEnabled = true;
 
     public float CurrentMove
     {
         get
         {
-            if(IsMoving && !touchingDirections.IsOnWall)
+            if (IsMoving && !touchingDirections.IsOnWall)
             {
                 return walkSpeed;
             }
@@ -30,6 +29,20 @@ public class PlayerController : MonoBehaviour
             {
                 return 0;
             }
+        }
+    }
+
+    [SerializeField]
+    private bool _enableMove = true;
+    public bool EnableMove
+    {
+        get
+        {
+            return _enableMove;
+        }
+        private set
+        {
+            _enableMove = value;
         }
     }
 
@@ -113,6 +126,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private bool _restartScene = false;
+
+    public bool RestartScene
+    {
+        get
+        {
+            return _restartScene;
+        }
+        private set
+        {
+            _restartScene = value;
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -123,7 +151,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isMovementEnabled)
+        if (EnableMove)
         {
             rb.velocity = new Vector2(moveInput.x * CurrentMove, rb.velocity.y);
             animator.SetFloat(AnimationString.yVelocity, rb.velocity.y);
@@ -133,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (isMovementEnabled) 
+        if (EnableMove) 
         {
             moveInput = context.ReadValue<Vector2>();
             IsMoving = moveInput != Vector2.zero;
@@ -159,19 +187,22 @@ public class PlayerController : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (EnableMove)
         {
-            IsCrouching = true;
-        }
-        else if (context.canceled)
-        {
-            IsCrouching = false;
+            if (context.started && touchingDirections.IsGrounded)
+            {
+                IsCrouching = true;
+            }
+            else if (context.canceled)
+            {
+                IsCrouching = false;
+            }
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (IsCrouching == false)
+        if (IsCrouching == false && EnableMove)
         {
             if (context.started && touchingDirections.IsGrounded)
             {
@@ -183,25 +214,46 @@ public class PlayerController : MonoBehaviour
 
     public void OnDownPlatform(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (EnableMove)
         {
-            PassPlatform = true;
-        }
-        else if (context.canceled)
-        {
-            PassPlatform = false;
+            if (context.started && touchingDirections.IsGrounded)
+            {
+                PassPlatform = true;
+            }
+            else if (context.canceled)
+            {
+                PassPlatform = false;
+            }
         }
     }
 
     public void OnInteraction(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (EnableMove)
         {
-            Interaction = true;
+            if (context.started)
+            {
+                Interaction = true;
+            }
+            else if (context.canceled)
+            {
+                Interaction = false;
+            }
         }
-        else if(context.canceled)
+    }
+
+    public void OnRestartScene(InputAction.CallbackContext context)
+    {
+        if (EnableMove)
         {
-            Interaction = false;
+            if (context.started)
+            {
+                RestartScene = true;
+            }
+            else if (context.canceled)
+            {
+                RestartScene = false;
+            }
         }
     }
 
@@ -219,13 +271,8 @@ public class PlayerController : MonoBehaviour
     {
         playerCapsuleCollider.direction = direction;
     }
-    public void DisableMovement()
+    public void EnableMovement(bool value)
     {
-        isMovementEnabled = false;
-    }
-
-    public void EnableMovement()
-    {
-        isMovementEnabled = true;
+        EnableMove = value;
     }
 }

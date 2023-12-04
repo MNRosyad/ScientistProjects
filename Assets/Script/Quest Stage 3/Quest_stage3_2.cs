@@ -23,7 +23,7 @@ public class Quest_stage3_2 : MonoBehaviour
         // Panggil DisableMovement dari PlayerController
         if (playerController != null)
         {
-            playerController.DisableMovement();
+            playerController.EnableMovement(false);
         }
     }
 
@@ -32,7 +32,7 @@ public class Quest_stage3_2 : MonoBehaviour
        
         if (playerController != null)
         {
-            playerController.EnableMovement();
+            playerController.EnableMovement(true);
         }
         if (doorAnimatorC != null)
         {
@@ -95,7 +95,7 @@ public class Quest_stage3_2 : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.EnableMovement();
+                playerController.EnableMovement(true);
             }
             ResetInputField();
         }
@@ -122,7 +122,7 @@ public class Quest_stage3_2 : MonoBehaviour
                 // Panggil EnableMovement dari PlayerController saat keluar dari UI
                 if (playerController != null)
                 {
-                    playerController.EnableMovement();
+                    playerController.EnableMovement(true);
                 }
 
                 // Setelah keluar dari UI, pastikan input field direset
