@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
     public float jumpPower = 19f;
+    private bool isMovementEnabled = true;
 
     public float CurrentMove
     {
@@ -122,16 +123,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveInput.x * CurrentMove, rb.velocity.y);
-        animator.SetFloat(AnimationString.yVelocity, rb.velocity.y);
+        if (isMovementEnabled)
+        {
+            rb.velocity = new Vector2(moveInput.x * CurrentMove, rb.velocity.y);
+            animator.SetFloat(AnimationString.yVelocity, rb.velocity.y);
+        }
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
+        if (isMovementEnabled) 
+        {
+            moveInput = context.ReadValue<Vector2>();
+            IsMoving = moveInput != Vector2.zero;
 
-        SetFacingDirection(moveInput);
+            SetFacingDirection(moveInput);
+        }
+        
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -209,5 +218,14 @@ public class PlayerController : MonoBehaviour
     public void SetCapsuleDirection(CapsuleDirection2D direction)
     {
         playerCapsuleCollider.direction = direction;
+    }
+    public void DisableMovement()
+    {
+        isMovementEnabled = false;
+    }
+
+    public void EnableMovement()
+    {
+        isMovementEnabled = true;
     }
 }

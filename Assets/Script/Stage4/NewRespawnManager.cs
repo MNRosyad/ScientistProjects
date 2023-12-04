@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class RespawnManager : MonoBehaviour
+public class NewRespawnManager : MonoBehaviour
 {
     public GameObject respawnUI;
-    public Transform respawnPoint;
-    public GameObject player;
     public AnimatorTransision animator;
 
     void Start()
@@ -38,14 +36,13 @@ public class RespawnManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        player.transform.position = respawnPoint.position;
         ShowRespawnUI();
-
     }
 
     public void PlayerDeath(GameObject Player)
     {
         RespawnPlayer();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

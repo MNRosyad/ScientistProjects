@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(RespawnManager))]
-public class VoidDeath : MonoBehaviour
+public class PlayerDeath : MonoBehaviour
 {
     private RespawnManager respawnManager;
-    public AnimatorTransision animator;
 
     private void Start()
     {
         respawnManager = FindObjectOfType<RespawnManager>();
 
-        if (respawnManager == null )
+        if (respawnManager == null)
         {
             Debug.LogError("RespawnManager not found! Make sure it exists in the scene.");
         }
@@ -22,7 +20,7 @@ public class VoidDeath : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-           respawnManager.PlayerDeath(other.gameObject);
+            respawnManager.PlayerDeath(other.gameObject);
         }
     }
 
