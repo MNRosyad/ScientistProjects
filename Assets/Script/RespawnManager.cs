@@ -29,14 +29,22 @@ public class RespawnManager : MonoBehaviour
             animator.TransitionCoroutine();
         }
         respawnUI.SetActive(true);
-        playerController.EnableMovement(false);
+
+        if (playerController != null)
+        {
+            playerController.EnableMovement(false);
+        }
     }
 
     public void ContinueGame()
     {
         respawnUI.SetActive(false);
         animator.TransitionCoroutine();
-        playerController.EnableMovement(true);
+        player.transform.position = respawnPoint.position;
+        if (playerController != null)
+        {
+            playerController.EnableMovement(true);
+        }
     }
 
     public void ReturnToMainMenu()

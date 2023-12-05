@@ -10,48 +10,48 @@ public class QuestDua : MonoBehaviour
     public GameObject QuestUI;
     public PortalController portalC;
 
+    public PlayerController playerController;
+    public Animator PortalAnimatorC;
+    public Animator PortalAnimatorD;
+
     private bool isPlayerInRange = false;
+    private bool isQuestActive = false;
 
-    void Start()
+    public void StartQuest()
     {
-        if (QuestUI != null)
+        isQuestActive = true;
+
+        if (playerController != null)
         {
-            QuestUI.SetActive(false);
+            playerController.EnableMovement(false);
         }
     }
 
-    void Update()
+    public void CompleteQuest()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
-        {
-            QuestUI.SetActive(true);
-        }
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (playerController != null)
         {
-            isPlayerInRange = true;
+            playerController.EnableMovement(true);
         }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (PortalAnimatorC != null)
         {
-            isPlayerInRange = false;
-            QuestUI.SetActive(false);
-            ResetInputFields();
+            PortalAnimatorC.SetTrigger("OpenPortal");
         }
-    }
 
+        if (PortalAnimatorD != null)
+        {
+            PortalAnimatorD.SetTrigger("OpenPortal");
+        }
+
+    }
     public void ProcessInput()
     {
         string userInput1 = inputField1.text;
         string userInput2 = inputField2.text;
         CheckInputs(userInput1, userInput2);
     }
+
 
     public void CheckInputs(string input1, string input2)
     {
@@ -67,11 +67,13 @@ public class QuestDua : MonoBehaviour
             QuestUI.SetActive(false);
             portalC.EnableCollider();
             GetComponent<Collider2D>().enabled = false;
+
+            CompleteQuest();
         }
         else
         {
             Debug.Log("Setidaknya satu jawaban salah.");
-            ResetInputFields();
+            ResetInputField();
         }
     }
 
@@ -90,9 +92,60 @@ public class QuestDua : MonoBehaviour
         return false;
     }
 
-    public void ResetInputFields()
+    public void ResetInputField()
     {
         inputField1.text = "";
         inputField2.text = "";
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            QuestUI.SetActive(false);
+
+            if (playerController != null)
+            {
+                playerController.EnableMovement(true);
+            }
+            ResetInputField();
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
+        {
+            if (!inputField1.isFocused)
+            {
+                QuestUI.SetActive(true);
+                StartQuest();
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && isQuestActive)
+        {
+            if (!inputField1.isFocused)
+            {
+                QuestUI.SetActive(false);
+
+                if (playerController != null)
+                {
+                    playerController.EnableMovement(true);
+                }
+                ResetInputField();
+            }
+
+        }
     }
 }
