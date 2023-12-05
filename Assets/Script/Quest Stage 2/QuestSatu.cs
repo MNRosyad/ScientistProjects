@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class QuestSatu : MonoBehaviour
@@ -10,51 +9,48 @@ public class QuestSatu : MonoBehaviour
     public GameObject QuestUI;
     public PortalController portalA;
 
+    public PlayerController playerController;
+    public Animator PortalAnimatorA;
+    public Animator PortalAnimatorB;
+
     private bool isPlayerInRange = false;
+    private bool isQuestActive = false;
 
-
-    void Start()
+    public void StartQuest()
     {
-        if (QuestUI != null)
+        isQuestActive = true;
+
+        if (playerController != null)
         {
-            QuestUI.SetActive(false);
+            playerController.EnableMovement(false);
         }
     }
 
-    void Update()
+    public void CompleteQuest()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
+
+        if (playerController != null)
         {
-            QuestUI.SetActive(true);
+            playerController.EnableMovement(true);
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (PortalAnimatorA != null)
         {
-            isPlayerInRange = true;
+            PortalAnimatorA.SetTrigger("OpenPortal");
         }
-    }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (PortalAnimatorB != null)
         {
-            isPlayerInRange = false;
-            QuestUI.SetActive(false);
-
-            // Setelah keluar dari jangkauan, pastikan input field direset
-            ResetInputField();
+            PortalAnimatorB.SetTrigger("OpenPortal");
         }
-    }
 
+    }
     public void ProcessInput()
     {
         string userInput = inputField.text;
         CheckInput(userInput);
     }
 
+    // Metode untuk memeriksa input
     public void CheckInput(string input)
     {
         int jawabanBenar = 7;
@@ -71,6 +67,8 @@ public class QuestSatu : MonoBehaviour
                 QuestUI.SetActive(false);
                 portalA.EnableCollider();
                 GetComponent<Collider2D>().enabled = false;
+
+                CompleteQuest();
             }
             else
             {
@@ -89,5 +87,56 @@ public class QuestSatu : MonoBehaviour
     public void ResetInputField()
     {
         inputField.text = "";
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            QuestUI.SetActive(false);
+
+            if (playerController != null)
+            {
+                playerController.EnableMovement(true);
+            }
+            ResetInputField();
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInRange)
+        {
+            if (!inputField.isFocused)
+            {
+                QuestUI.SetActive(true);
+                StartQuest();
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && isQuestActive)
+        {
+            if (!inputField.isFocused)
+            {
+                QuestUI.SetActive(false);
+
+                if (playerController != null)
+                {
+                    playerController.EnableMovement(true);
+                }
+                ResetInputField();
+            }
+
+        }
     }
 }

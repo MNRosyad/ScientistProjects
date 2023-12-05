@@ -20,7 +20,6 @@ public class Quest_stage3_1 : MonoBehaviour
     {
         isQuestActive = true;
 
-        // Panggil DisableMovement dari PlayerController
         if (playerController != null)
         {
             playerController.EnableMovement(false);
