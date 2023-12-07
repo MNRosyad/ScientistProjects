@@ -6,19 +6,10 @@
             "id": "fb398281-c713-40ba-97ea-3105efd49372",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "eb244873-610b-4c25-ae5a-bd72b47edd84",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Jump",
-                    "type": "Value",
-                    "id": "dad43e5b-1ce6-44b9-aa8a-397906af18d5",
-                    "expectedControlType": "Vector2",
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "393c8d31-914f-4495-b33e-d6cb55e841d0",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -42,25 +33,56 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interaction",
-                    "type": "Button",
-                    "id": "393c8d31-914f-4495-b33e-d6cb55e841d0",
-                    "expectedControlType": "Button",
+                    "name": "RestartScene",
+                    "type": "Value",
+                    "id": "1f387482-5586-48bc-8f74-714372b1268b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "RestartScene",
-                    "type": "Button",
-                    "id": "1f387482-5586-48bc-8f74-714372b1268b",
-                    "expectedControlType": "Button",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "eb244873-610b-4c25-ae5a-bd72b47edd84",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Value",
+                    "id": "dad43e5b-1ce6-44b9-aa8a-397906af18d5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "0d0f0851-c712-467d-97e8-8c03fe11912a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9a74eb0-f7b4-4afc-b061-03068205e076",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RestartScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "basic",
                     "id": "82a569e1-bd90-4c91-9e73-3b6115bda228",
@@ -161,39 +183,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "WASD",
-                    "id": "9cde8217-9a1b-4928-a3c9-1b3a96e10b4f",
-                    "path": "OneModifier",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DownPlatform",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Modifier",
-                    "id": "be7de833-54e0-460c-be47-37bb2790aece",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DownPlatform",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Binding",
-                    "id": "42f1a311-3cf1-4b9e-9f21-ec6263a2e2bb",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DownPlatform",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "down",
                     "id": "5e6b039d-7b3a-4f4e-ab05-ed2c70d8db04",
                     "path": "2DVector",
@@ -227,26 +216,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "0d0f0851-c712-467d-97e8-8c03fe11912a",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "name": "WASD",
+                    "id": "9cde8217-9a1b-4928-a3c9-1b3a96e10b4f",
+                    "path": "OneModifier",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Interaction",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "DownPlatform",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "f9a74eb0-f7b4-4afc-b061-03068205e076",
-                    "path": "<Keyboard>/r",
+                    "name": "Modifier",
+                    "id": "be7de833-54e0-460c-be47-37bb2790aece",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RestartScene",
+                    "groups": "",
+                    "action": "DownPlatform",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Binding",
+                    "id": "42f1a311-3cf1-4b9e-9f21-ec6263a2e2bb",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownPlatform",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
@@ -263,7 +263,7 @@
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

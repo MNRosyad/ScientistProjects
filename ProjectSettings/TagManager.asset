@@ -9,6 +9,7 @@ TagManager:
   - TombolGerbang
   - Gerbang
   - Trap
+  - CameraZone
   layers:
   - Default
   - TransparentFX
