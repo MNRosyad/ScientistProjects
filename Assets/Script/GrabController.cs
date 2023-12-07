@@ -19,8 +19,7 @@ public class GrabController : MonoBehaviour
     private int layerNumber = 6;
     private int layerMask;
 
-    [SerializeField]
-    private bool grabToggle = false;
+    public bool grabToggle = false;
     [SerializeField]
     private bool defaultRay = true;
     private Collider2D savedCollider;

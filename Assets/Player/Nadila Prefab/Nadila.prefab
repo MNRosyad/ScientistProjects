@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 238565574545791121}
   - component: {fileID: 879504369021508854}
   - component: {fileID: 4347826694001778663}
+  - component: {fileID: 2362430113155593170}
   m_Layer: 3
   m_Name: Nadila
   m_TagString: Player
@@ -142,7 +143,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &6415605720732345795
@@ -195,6 +196,7 @@ MonoBehaviour:
   walkSpeed: 7
   crouchSpeed: 4
   jumpPower: 19
+  _enableMove: 1
   _isMoving: 0
   _isFacingRight: 0
   _isCrouching: 0
@@ -391,6 +393,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &2362430113155593170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469515448365049859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e670c3c291b8fd947932cf98509276d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTag: CameraZone
+  primaryCam: {fileID: 0}
+  virtualCam: []
 --- !u!1 &4141733454660072328
 GameObject:
   m_ObjectHideFlags: 0
