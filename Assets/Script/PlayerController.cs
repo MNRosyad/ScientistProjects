@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     TouchingDirections touchingDirections;
     CapsuleCollider2D playerCapsuleCollider;
+    GrabController grabBox;
 
     public float walkSpeed = 7f;
     public float crouchSpeed = 4f;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
         private set
         {
             _isCrouching = value;
+            animator.SetBool(AnimationString.isCrouching, value);
         }
     }
 
@@ -147,6 +149,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
         playerCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        grabBox = GetComponent<GrabController>();
     }
 
     private void FixedUpdate()
@@ -192,10 +195,34 @@ public class PlayerController : MonoBehaviour
             if (context.started && touchingDirections.IsGrounded)
             {
                 IsCrouching = true;
+
+                if (!grabBox.grabToggle)
+                {
+                    AdjustColliderOffset(-0.02f, -0.7f);
+                    AdjustColliderSize(0.8f, 1.5f);
+                }
+                else if (grabBox.grabToggle)
+                {
+                    SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                    AdjustColliderOffset(-0.7f, -0.7f);
+                    AdjustColliderSize(2.3f, 1.5f);
+                }
             }
             else if (context.canceled)
             {
                 IsCrouching = false;
+
+                if (!grabBox.grabToggle)
+                {
+                    AdjustColliderOffset(-0.02f, -0.4f);
+                    AdjustColliderSize(0.8f, 2f);
+                }
+                else if (grabBox.grabToggle)
+                {
+                    SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                    AdjustColliderOffset(-0.7f, -0.4f);
+                    AdjustColliderSize(2.3f, 2f);
+                }
             }
         }
     }
