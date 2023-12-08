@@ -8,6 +8,7 @@ public class AnimationString
 {
     internal static String isMoving = "isMoving";
     internal static String isGrounded = "isGrounded";
+    internal static String isCrouching = "isCrouching";
     internal static String yVelocity = "yVelocity";
     internal static String jump = "jump";
     internal static String isOnWall = "isOnWall";

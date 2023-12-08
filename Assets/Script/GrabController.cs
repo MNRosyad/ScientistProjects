@@ -65,9 +65,18 @@ public class GrabController : MonoBehaviour
                     detectBox.GetComponent<Rigidbody2D>().isKinematic = true;
                     detectBox.isTrigger = true;
 
-                    player.SetCapsuleDirection(CapsuleDirection2D.Horizontal);
-                    player.AdjustColliderOffset(-0.7f, -0.4f);
-                    player.AdjustColliderSize(2.3f, 2f);
+                    if (!player.IsCrouching)
+                    {
+                        player.SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                        player.AdjustColliderOffset(-0.7f, -0.4f);
+                        player.AdjustColliderSize(2.3f, 2f);
+                    }
+                    else if (player.IsCrouching)
+                    {
+                        player.SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                        player.AdjustColliderOffset(-0.7f, -0.7f);
+                        player.AdjustColliderSize(2.3f, 1.5f);
+                    }
 
                     boxCheck.rigidbody.velocity = Vector2.zero;
                     savedCollider = detectBox;
@@ -84,9 +93,18 @@ public class GrabController : MonoBehaviour
                     savedCollider.GetComponent<Rigidbody2D>().isKinematic = false;
                     savedCollider.isTrigger = false;
 
-                    player.SetCapsuleDirection(CapsuleDirection2D.Vertical);
-                    player.AdjustColliderOffset(-0.02f, -0.4f);
-                    player.AdjustColliderSize(0.8f, 2f);
+                    if (!player.IsCrouching)
+                    {
+                        player.SetCapsuleDirection(CapsuleDirection2D.Vertical);
+                        player.AdjustColliderOffset(-0.02f, -0.4f);
+                        player.AdjustColliderSize(0.8f, 2f);
+                    }
+                    else if (player.IsCrouching)
+                    {
+                        player.SetCapsuleDirection(CapsuleDirection2D.Vertical);
+                        player.AdjustColliderOffset(-0.02f, -0.7f);
+                        player.AdjustColliderSize(0.8f, 1.5f);
+                    }
 
                     grabToggle = false;
                     //defaultRay = true;
