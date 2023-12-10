@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Reversed_ConveyorBelt_0
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -2087760709, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: 51602063, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -643177636, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -584650729, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -2008071401, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -1293995483, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  m_MinSpeed: 13
+  m_MaxSpeed: 13
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1
+  m_TileAnimationFlags: 0
