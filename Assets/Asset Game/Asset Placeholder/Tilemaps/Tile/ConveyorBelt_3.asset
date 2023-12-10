@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: ConveyorBelt_3
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 881273440, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -1033593798, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: 1083831686, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: 891816433, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: 710315859, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  - {fileID: -1476085641, guid: 5e9c0656cc5300044a5165a6be128fd8, type: 3}
+  m_MinSpeed: 13
+  m_MaxSpeed: 13
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1
+  m_TileAnimationFlags: 0

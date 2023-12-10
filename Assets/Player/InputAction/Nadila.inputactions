@@ -6,15 +6,6 @@
             "id": "fb398281-c713-40ba-97ea-3105efd49372",
             "actions": [
                 {
-                    "name": "Interaction",
-                    "type": "Button",
-                    "id": "393c8d31-914f-4495-b33e-d6cb55e841d0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "DownPlatform",
                     "type": "Value",
                     "id": "477edf0d-ec4b-4f9f-ba08-8450a688017a",
@@ -58,20 +49,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "bb991c17-c050-4485-9e6c-1b0227536604",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "0d0f0851-c712-467d-97e8-8c03fe11912a",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "f9a74eb0-f7b4-4afc-b061-03068205e076",
@@ -247,6 +236,17 @@
                     "action": "DownPlatform",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "809037be-0935-4e06-a692-3ee6bd844e1a",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

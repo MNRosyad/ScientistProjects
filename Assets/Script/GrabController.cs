@@ -75,7 +75,7 @@ public class GrabController : MonoBehaviour
                     {
                         player.SetCapsuleDirection(CapsuleDirection2D.Horizontal);
                         player.AdjustColliderOffset(-0.7f, -0.7f);
-                        player.AdjustColliderSize(2.3f, 1.5f);
+                        player.AdjustColliderSize(2.3f, 1.4f);
                     }
 
                     boxCheck.rigidbody.velocity = Vector2.zero;
@@ -103,7 +103,7 @@ public class GrabController : MonoBehaviour
                     {
                         player.SetCapsuleDirection(CapsuleDirection2D.Vertical);
                         player.AdjustColliderOffset(-0.02f, -0.7f);
-                        player.AdjustColliderSize(0.8f, 1.5f);
+                        player.AdjustColliderSize(0.8f, 1.4f);
                     }
 
                     grabToggle = false;

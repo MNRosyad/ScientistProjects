@@ -24,7 +24,14 @@ public class PlayerController : MonoBehaviour
         {
             if (IsMoving && !touchingDirections.IsOnWall)
             {
-                return walkSpeed;
+                if (IsCrouching)
+                {
+                    return crouchSpeed;
+                }
+                else
+                {
+                    return walkSpeed;
+                }
             }
             else
             {
@@ -98,6 +105,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private bool _buttonCrouch = false;
+
+    private bool ButtonCrouch 
+    { 
+        get
+        {
+            return _buttonCrouch;
+        } 
+        set
+        {
+            _buttonCrouch = value;
+        }
+    }
+
     [SerializeField]
     private bool _passPlatform = false;
 
@@ -158,8 +179,26 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(moveInput.x * CurrentMove, rb.velocity.y);
             animator.SetFloat(AnimationString.yVelocity, rb.velocity.y);
+
+            if (IsCrouching)
+            {
+                if (!ButtonCrouch && !touchingDirections.IsOnCeiling)
+                {
+                    IsCrouching = false;
+                    if (!grabBox.grabToggle)
+                    {
+                        AdjustColliderOffset(-0.02f, -0.4f);
+                        AdjustColliderSize(0.8f, 2f);
+                    }
+                    else if (grabBox.grabToggle)
+                    {
+                        SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                        AdjustColliderOffset(-0.7f, -0.4f);
+                        AdjustColliderSize(2.3f, 2f);
+                    }
+                }
+            }
         }
-        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -195,33 +234,43 @@ public class PlayerController : MonoBehaviour
             if (context.started && touchingDirections.IsGrounded)
             {
                 IsCrouching = true;
+                ButtonCrouch = true;
 
                 if (!grabBox.grabToggle)
                 {
                     AdjustColliderOffset(-0.02f, -0.7f);
-                    AdjustColliderSize(0.8f, 1.5f);
+                    AdjustColliderSize(0.8f, 1.4f);
                 }
                 else if (grabBox.grabToggle)
                 {
                     SetCapsuleDirection(CapsuleDirection2D.Horizontal);
                     AdjustColliderOffset(-0.7f, -0.7f);
-                    AdjustColliderSize(2.3f, 1.5f);
+                    AdjustColliderSize(2.3f, 1.4f);
                 }
             }
             else if (context.canceled)
             {
-                IsCrouching = false;
-
-                if (!grabBox.grabToggle)
+                ButtonCrouch = false;
+                if (touchingDirections.IsOnCeiling)
                 {
-                    AdjustColliderOffset(-0.02f, -0.4f);
-                    AdjustColliderSize(0.8f, 2f);
+                    IsCrouching = true;
                 }
-                else if (grabBox.grabToggle)
+
+                else if (!touchingDirections.IsOnCeiling)
                 {
-                    SetCapsuleDirection(CapsuleDirection2D.Horizontal);
-                    AdjustColliderOffset(-0.7f, -0.4f);
-                    AdjustColliderSize(2.3f, 2f);
+                    IsCrouching = false;
+
+                    if (!grabBox.grabToggle)
+                    {
+                        AdjustColliderOffset(-0.02f, -0.4f);
+                        AdjustColliderSize(0.8f, 2f);
+                    }
+                    else if (grabBox.grabToggle)
+                    {
+                        SetCapsuleDirection(CapsuleDirection2D.Horizontal);
+                        AdjustColliderOffset(-0.7f, -0.4f);
+                        AdjustColliderSize(2.3f, 2f);
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@ using TMPro;
 public class KeypadDoor_Stage3 : MonoBehaviour
 {
     private bool IsAtKeypad = false;
-    private bool KodeBenar = false;
+    //private bool KodeBenar = false;
 
     [SerializeField] private TextMeshProUGUI CodeText;
     string codeTextValue = "";
@@ -22,7 +22,7 @@ public class KeypadDoor_Stage3 : MonoBehaviour
         if (codeTextValue == safeCode)
         {
             CodePanel.SetActive(false);
-            KodeBenar = true;
+            //KodeBenar = true;
             pintuBesi.EnableCollider();
             GetComponent<Collider2D>().enabled = false;
         }

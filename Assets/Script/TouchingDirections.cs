@@ -9,7 +9,7 @@ public class TouchingDirections : MonoBehaviour
 
     public float groundDistance = 0.05f;
     public float wallDistance = 0.01f;
-    public float ceilingDistance = 0.05f;
+    public float ceilingDistance = 0.2f;
 
     public ContactFilter2D castFilter;
     RaycastHit2D[] groundHits = new RaycastHit2D[5];
