@@ -61,20 +61,28 @@ public class ShowETrigger : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (grabControl == null)
+        if (theObject.CompareTag("Box"))
         {
-            return;
+            if (grabControl == null)
+            {
+                return;
+            }
+            else if (grabControl.grabToggle == false)
+            {
+                ShowE = true;
+                render.enabled = true;
+            }
+            else if (grabControl.grabToggle == true)
+            {
+                ShowE = false;
+                render.enabled = false;
+                grabControl = null;
+            }
         }
-        else if (grabControl.grabToggle == false)
+        else
         {
             ShowE = true;
             render.enabled = true;
-        }
-        else if (grabControl.grabToggle == true)
-        {
-            ShowE = false;
-            render.enabled = false;
-            grabControl = null;
         }
     }
 
