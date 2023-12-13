@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class QuestDua : MonoBehaviour
 {
@@ -96,6 +97,12 @@ public class QuestDua : MonoBehaviour
     {
         inputField1.text = "";
         inputField2.text = "";
+    }
+
+    public void ExitBookUI()
+    {
+        QuestUI.SetActive(false);
+        playerController.EnableMovement(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)

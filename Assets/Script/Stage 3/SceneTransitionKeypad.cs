@@ -9,6 +9,7 @@ public class SceneTransitionKeypad : MonoBehaviour
     public AnimatorTransision animator;
     GameObject player;
     Collider2D doorCollider;
+    public Animator pintuBesi; 
 
     private void Awake()
     {
@@ -23,6 +24,11 @@ public class SceneTransitionKeypad : MonoBehaviour
         {
             GantiScene();
         }
+    }
+    
+    public void AnimatorPintuBesi()
+    {
+        pintuBesi.SetTrigger("OpenDoor");
     }
 
     public void EnableCollider()

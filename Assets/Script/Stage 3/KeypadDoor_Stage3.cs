@@ -25,6 +25,7 @@ public class KeypadDoor_Stage3 : MonoBehaviour
             //KodeBenar = true;
             pintuBesi.EnableCollider();
             GetComponent<Collider2D>().enabled = false;
+            pintuBesi.AnimatorPintuBesi();
         }
 
         if (codeTextValue.Length >= 5)

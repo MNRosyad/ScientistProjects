@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
