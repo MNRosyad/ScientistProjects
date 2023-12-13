@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class QuestSatu : MonoBehaviour
 {
@@ -87,6 +88,12 @@ public class QuestSatu : MonoBehaviour
     public void ResetInputField()
     {
         inputField.text = "";
+    }
+
+    public void ExitBookUI()
+    {
+        QuestUI.SetActive(false);
+        playerController.EnableMovement(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)

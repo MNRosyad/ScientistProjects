@@ -21,6 +21,10 @@ public class BookInteraction : MonoBehaviour
         {
             bookUI.SetActive(true);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            bookUI.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -40,4 +44,8 @@ public class BookInteraction : MonoBehaviour
             bookUI.SetActive(false);
         }
     }
+    public void ExitBookUI()
+    {
+        bookUI.SetActive(false);
+    }    
 }

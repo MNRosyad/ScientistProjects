@@ -35,7 +35,7 @@ public class PortalController : MonoBehaviour
     }
     private void TeleportPlayer()
     {
-        if (Vector2.Distance(player.transform.position, transform.position) > 0.3f)
+        if (Vector2.Distance(player.transform.position, transform.position) > 0.5f)
         {
             player.transform.position = destination.transform.position;
         }

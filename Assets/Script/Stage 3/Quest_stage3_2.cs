@@ -76,6 +76,11 @@ public class Quest_stage3_2 : MonoBehaviour
     {
         inputField.text = "";
     }
+    public void ExitBookUI()
+    {
+        QuestUI.SetActive(false);
+        playerController.EnableMovement(true);
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
