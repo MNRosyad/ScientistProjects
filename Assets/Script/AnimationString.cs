@@ -15,4 +15,8 @@ public class AnimationString
     internal static String isOnCeiling = "isOnCeiling";
     internal static String gateOpen = "gateOpen";
     internal static String showE = "showE";
+    
+    internal static String profWalking = "Walking";
+    internal static String profReading = "Reading";
+    internal static String profExperiment = "Experiment";
 }
