@@ -1966,7 +1966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 251, y: -285}
+  m_AnchoredPosition: {x: 244, y: -231}
   m_SizeDelta: {x: 801.7002, y: 473.7021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553754214
@@ -1989,16 +1989,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ambient Music & Sound Effect By Pixabay
-
-
-    Background Music Cutscene
-    By Chroma
-
-
-
-
-    THANKS FOR INFINITE LEARNING'
+  m_text: "Ambient Music & Sound Effect By Pixabay\nBackground Music Cutscene By
+    Chroma\n\n\nWith the Help from \n  INFINITE LEARNING &\n  PT Kinema Systrans
+    Multimedia"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aeb4b046241f6c949b1770f731cfa2e7, type: 2}
   m_sharedMaterial: {fileID: 5085673883298423746, guid: aeb4b046241f6c949b1770f731cfa2e7, type: 2}
