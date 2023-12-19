@@ -9,12 +9,17 @@ public class ProfesorMove : MonoBehaviour
     private float calculatePost;
     private float lastPost;
 
+    public float stopCount = 5f;
+    [HideInInspector] public float timeStop = 0f;
+    [HideInInspector] public bool isStopped;
+
     private Transform currentTarget;
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 1.7f;
     private Animator animator;
+    private ProfessorDetection detection;
 
     [SerializeField]
-    private bool isFacingRight = false;
+    private bool isFacingRight;
 
     public bool IsFacingRight
     {
@@ -33,56 +38,86 @@ public class ProfesorMove : MonoBehaviour
         }
     }
 
-    private bool randomBoolean
-    {
-        get
-        {
-            return (Random.value > 0.5f);
-        }
-    }
+    private bool profActivity;
 
     private void Awake()
     {
         currentTarget = pointA;
         animator = GetComponent<Animator>();
+        detection = GetComponent<ProfessorDetection>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (currentTarget == pointA)
+        {
+            profActivity = true;
+        }
+        else if (currentTarget == pointB)
+        {
+            profActivity = false;
+        }
+
         MoveToTarget();
     }
 
     private void MoveToTarget()
     {
-        transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, Time.deltaTime * speed);
-
-        if (Vector2.Distance(transform.position, currentTarget.position) < 0f)
+        if (!isStopped)
         {
-            currentTarget = (currentTarget == pointA) ? pointB : pointA;
+            transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, Time.deltaTime * speed);
             animator.SetBool(AnimationString.profWalking, true);
-            FacingDirection();
+
+            if (Vector2.Distance(transform.position, currentTarget.position) <= 0f)
+            {
+                timeStop = stopCount;
+                isStopped = true;
+                FacingDirection();
+            }
         }
-        else if (Vector2.Distance(transform.position, currentTarget.position) == 0f)
+        else
         {
-            StopMoving(randomBoolean);
-            //StartCoroutine(IdleCount());
+            if (detection.isDetected)
+            {
+                NoActivity();
+                detection.theTime -= Time.deltaTime;
+            }
+            else if (!detection.isDetected)
+            {
+                StopMoving(profActivity);
+                timeStop -= Time.deltaTime;
+            }
+
+            if (timeStop <= 0f)
+            {
+                currentTarget = (currentTarget == pointA) ? pointB : pointA;
+                NoActivity();
+                isStopped = false;
+            }
         }
     }
 
     private void StopMoving(bool decision)
     {
-        transform.position = currentTarget.position;
         animator.SetBool(AnimationString.profWalking, false);
-        if(decision)
+        if (decision)
         {
-            animator.SetBool(AnimationString.profWalking, false);
             animator.SetBool(AnimationString.profReading, true);
+            animator.SetBool(AnimationString.profExperiment, false);
         }
         else if(!decision)
         {
-            animator.SetBool(AnimationString.profWalking, false);
+            animator.SetBool(AnimationString.profReading, false);
             animator.SetBool(AnimationString.profExperiment, true);
         }
+    }
+
+    private void NoActivity()
+    {
+        animator.SetBool(AnimationString.profWalking, false);
+        animator.SetBool(AnimationString.profReading, false);
+        animator.SetBool(AnimationString.profExperiment, false);
+        FacingDirection();
     }
 
     private void FacingDirection()
@@ -99,14 +134,5 @@ public class ProfesorMove : MonoBehaviour
         }
 
         lastPost = transform.position.x;
-    }
-
-    private IEnumerator IdleCount()
-    {
-        yield return new WaitForSeconds(3f);
-        transform.position = new Vector2(transform.position.x + 0.01f, transform.position.y);
-        animator.SetBool(AnimationString.profReading, false);
-        animator.SetBool(AnimationString.profExperiment, false);
-        Debug.Log("Done!");
     }
 }
