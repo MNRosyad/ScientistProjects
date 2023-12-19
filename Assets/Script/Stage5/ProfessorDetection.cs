@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProfessorDetection : MonoBehaviour
 {
-    //[SerializeField] private GameObject lightAmbience;
-    //private Animator lightAnimation;
+    [SerializeField] private GameObject lightAmbience;
+    private Animator lightAnimation;
 
     public bool isDetected = false;
     [SerializeField] private float detectionTime = 3f;
@@ -20,7 +20,7 @@ public class ProfessorDetection : MonoBehaviour
     private void Awake()
     {
         respawnManager = GetComponent<RespawnManager>();
-        //lightAnimation = lightAmbience.AddComponent<Animator>();
+        lightAnimation = lightAmbience.AddComponent<Animator>();
         movement = GetComponent<ProfesorMove>();
 
         theTime = movement.timeStop;
@@ -35,6 +35,7 @@ public class ProfessorDetection : MonoBehaviour
             isDetected = true;
             movement.isStopped = true;
             theTime = theCount;
+            lightAnimation.SetBool("Change_Color", true);
         }
     }
 
@@ -45,6 +46,7 @@ public class ProfessorDetection : MonoBehaviour
             StopDetectionTimer();
             isDetected = false;
             movement.isStopped = false;
+            lightAnimation.SetBool("Change_Color", false);
         }
     }
 
